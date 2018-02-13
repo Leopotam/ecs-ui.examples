@@ -15,10 +15,6 @@ namespace LeopotamGroup.Ecs.Ui.Tests {
         [EcsFilterInclude (typeof (EcsUiEndDragEvent))]
         EcsFilter _endDragEvents;
 
-        public EcsRunSystemType GetRunSystemType () {
-            return EcsRunSystemType.Update;
-        }
-
         public void Run () {
             foreach (var entity in _beginDragEvents.Entities) {
                 var data = _world.GetComponent<EcsUiBeginDragEvent> (entity);

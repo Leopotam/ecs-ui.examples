@@ -24,7 +24,7 @@ namespace LeopotamGroup.Ecs.Ui.Tests {
         }
 
         void Update () {
-            _systems.RunUpdate ();
+            _systems.Run ();
         }
 
         void OnDisable () {

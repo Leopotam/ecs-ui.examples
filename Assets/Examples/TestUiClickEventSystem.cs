@@ -18,10 +18,6 @@ namespace LeopotamGroup.Ecs.Ui.Tests {
             return EcsReactSystemType.OnAdd;
         }
 
-        public override EcsRunSystemType GetRunSystemType () {
-            return EcsRunSystemType.Update;
-        }
-
         public override void RunReact (List<int> entities) {
             foreach (var entity in entities) {
                 var data = _world.GetComponent<EcsUiClickEvent> (entity);

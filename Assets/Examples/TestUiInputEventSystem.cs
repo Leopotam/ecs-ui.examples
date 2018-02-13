@@ -12,10 +12,6 @@ namespace LeopotamGroup.Ecs.Ui.Tests {
         [EcsFilterInclude (typeof (EcsUiInputEndEvent))]
         EcsFilter _inputEndEvents;
 
-        public EcsRunSystemType GetRunSystemType () {
-            return EcsRunSystemType.Update;
-        }
-
         public void Run () {
             foreach (var entity in _inputChangeEvents.Entities) {
                 var data = _world.GetComponent<EcsUiInputChangeEvent> (entity);
