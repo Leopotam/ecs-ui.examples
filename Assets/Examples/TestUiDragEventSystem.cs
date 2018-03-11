@@ -16,16 +16,16 @@ namespace LeopotamGroup.Ecs.Ui.Tests {
         EcsFilter _endDragEvents;
 
         public void Run () {
-            foreach (var entity in _beginDragEvents.Entities) {
-                var data = _world.GetComponent<EcsUiBeginDragEvent> (entity);
+            for (var i = 0; i < _beginDragEvents.EntitiesCount; i++) {
+                var data = _world.GetComponent<EcsUiBeginDragEvent> (_beginDragEvents.Entities[i]);
                 Debug.Log ("Drag started!", data.Sender);
             }
-            foreach (var entity in _dragEvents.Entities) {
-                var data = _world.GetComponent<EcsUiDragEvent> (entity);
+            for (var i = 0; i < _dragEvents.EntitiesCount; i++) {
+                var data = _world.GetComponent<EcsUiDragEvent> (_dragEvents.Entities[i]);
                 data.Sender.transform.localPosition += (Vector3) data.Delta;
             }
-            foreach (var entity in _endDragEvents.Entities) {
-                var data = _world.GetComponent<EcsUiEndDragEvent> (entity);
+            for (var i = 0; i < _endDragEvents.EntitiesCount; i++) {
+                var data = _world.GetComponent<EcsUiEndDragEvent> (_endDragEvents.Entities[i]);
                 Debug.Log ("Drag stopped!", data.Sender);
             }
         }

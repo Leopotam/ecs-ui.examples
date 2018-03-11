@@ -13,12 +13,12 @@ namespace LeopotamGroup.Ecs.Ui.Tests {
         EcsFilter _exitEvents;
 
         public void Run () {
-            foreach (var entity in _enterEvents.Entities) {
-                var data = _world.GetComponent<EcsUiEnterEvent> (entity);
+            for (var i = 0; i < _enterEvents.EntitiesCount; i++) {
+                var data = _world.GetComponent<EcsUiEnterEvent> (_enterEvents.Entities[i]);
                 Debug.Log ("Cursor enter!", data.Sender);
             }
-            foreach (var entity in _exitEvents.Entities) {
-                var data = _world.GetComponent<EcsUiExitEvent> (entity);
+            for (var i = 0; i < _exitEvents.EntitiesCount; i++) {
+                var data = _world.GetComponent<EcsUiExitEvent> (_exitEvents.Entities[i]);
                 Debug.Log ("Cursor exit!", data.Sender);
             }
         }

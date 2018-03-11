@@ -1,4 +1,3 @@
-using System.Collections.Generic;
 using LeopotamGroup.Ecs.Ui.Components;
 using UnityEngine;
 
@@ -18,9 +17,9 @@ namespace LeopotamGroup.Ecs.Ui.Tests {
             return EcsReactSystemType.OnAdd;
         }
 
-        public override void RunReact (List<int> entities) {
-            foreach (var entity in entities) {
-                var data = _world.GetComponent<EcsUiClickEvent> (entity);
+        public override void RunReact (int[] entities, int count) {
+            for (var i = 0; i < count; i++) {
+                var data = _world.GetComponent<EcsUiClickEvent> (entities[i]);
                 Debug.Log ("Im clicked!", data.Sender);
             }
         }
