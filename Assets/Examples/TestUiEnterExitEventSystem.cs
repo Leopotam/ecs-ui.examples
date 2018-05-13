@@ -2,23 +2,19 @@ using LeopotamGroup.Ecs.Ui.Components;
 using UnityEngine;
 
 namespace LeopotamGroup.Ecs.Ui.Tests {
+    [EcsInject]
     public class TestUiEnterExitEventSystem : IEcsRunSystem {
-        [EcsWorld]
-        EcsWorld _world;
+        EcsFilter<EcsUiEnterEvent> _enterEvents = null;
 
-        [EcsFilterInclude (typeof (EcsUiEnterEvent))]
-        EcsFilter _enterEvents;
-
-        [EcsFilterInclude (typeof (EcsUiExitEvent))]
-        EcsFilter _exitEvents;
+        EcsFilter<EcsUiExitEvent> _exitEvents = null;
 
         public void Run () {
             for (var i = 0; i < _enterEvents.EntitiesCount; i++) {
-                var data = _world.GetComponent<EcsUiEnterEvent> (_enterEvents.Entities[i]);
+                var data = _enterEvents.Components1[i];
                 Debug.Log ("Cursor enter!", data.Sender);
             }
             for (var i = 0; i < _exitEvents.EntitiesCount; i++) {
-                var data = _world.GetComponent<EcsUiExitEvent> (_exitEvents.Entities[i]);
+                var data = _exitEvents.Components1[i];
                 Debug.Log ("Cursor exit!", data.Sender);
             }
         }

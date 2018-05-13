@@ -1,8 +1,12 @@
 [submodule "Assets/LeopotamGroup/Ecs"]
 	path = Assets/LeopotamGroup/Ecs
-	url = https://Leopotam@github.com/Leopotam/ecs.git
+	url = https://github.com/Leopotam/ecs.git
 	branch = develop
 [submodule "Assets/LeopotamGroup/Ecs.Ui"]
 	path = Assets/LeopotamGroup/Ecs.Ui
-	url = https://Leopotam@github.com/Leopotam/ecs-ui.git
+	url = https://github.com/Leopotam/ecs-ui.git
+	branch = develop
+[submodule "Assets/LeopotamGroup/Ecs.UnityIntegration"]
+	path = Assets/LeopotamGroup/Ecs.UnityIntegration
+	url = https://github.com/Leopotam/ecs-unityintegration.git
 	branch = develop

@@ -2,23 +2,19 @@ using LeopotamGroup.Ecs.Ui.Components;
 using UnityEngine;
 
 namespace LeopotamGroup.Ecs.Ui.Tests {
+    [EcsInject]
     public class TestUiInputEventSystem : IEcsRunSystem {
-        [EcsWorld]
-        EcsWorld _world;
+        EcsFilter<EcsUiInputChangeEvent> _inputChangeEvents = null;
 
-        [EcsFilterInclude (typeof (EcsUiInputChangeEvent))]
-        EcsFilter _inputChangeEvents;
-
-        [EcsFilterInclude (typeof (EcsUiInputEndEvent))]
-        EcsFilter _inputEndEvents;
+        EcsFilter<EcsUiInputEndEvent> _inputEndEvents = null;
 
         public void Run () {
             for (var i = 0; i < _inputChangeEvents.EntitiesCount; i++) {
-                var data = _world.GetComponent<EcsUiInputChangeEvent> (_inputChangeEvents.Entities[i]);
+                var data = _inputChangeEvents.Components1[i];
                 Debug.LogFormat (data.Sender, "Input changed: {0}", data.Value);
             }
             for (var i = 0; i < _inputEndEvents.EntitiesCount; i++) {
-                var data = _world.GetComponent<EcsUiInputEndEvent> (_inputEndEvents.Entities[i]);
+                var data = _inputEndEvents.Components1[i];
                 Debug.LogFormat (data.Sender, "Input end: {0}", data.Value);
             }
         }

@@ -12,6 +12,9 @@ namespace LeopotamGroup.Ecs.Ui.Tests {
 
         void Start () {
             _world = new EcsWorld ();
+#if UNITY_EDITOR
+            UnityIntegration.EcsWorldObserver.Create (_world);
+#endif
             _systems = new EcsSystems (_world)
                 .Add (_uiEmitter)
                 .Add (new TestUiClickEventSystem ())
@@ -21,6 +24,9 @@ namespace LeopotamGroup.Ecs.Ui.Tests {
                 .Add (new TestUiScrollViewEventSystem ())
                 .Add (new EcsUiCleaner ());
             _systems.Initialize ();
+#if UNITY_EDITOR
+            UnityIntegration.EcsSystemsObserver.Create (_systems);
+#endif
         }
 
         void Update () {
