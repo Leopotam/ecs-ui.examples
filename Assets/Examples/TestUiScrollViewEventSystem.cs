@@ -2,9 +2,17 @@ using LeopotamGroup.Ecs.Ui.Components;
 using UnityEngine;
 
 namespace LeopotamGroup.Ecs.Ui.Tests {
+#if !LEOECS_DISABLE_INJECT
     [EcsInject]
+#endif
     public class TestUiScrollViewEventSystem : IEcsRunSystem {
         EcsFilter<EcsUiScrollViewEvent> _scrollViewEvents = null;
+
+#if LEOECS_DISABLE_INJECT
+        public TestUiScrollViewEventSystem (EcsWorld world) {
+            _scrollViewEvents = world.GetFilter<EcsFilter<EcsUiScrollViewEvent>> ();
+        }
+#endif
 
         void IEcsRunSystem.Run () {
             for (var i = 0; i < _scrollViewEvents.EntitiesCount; i++) {

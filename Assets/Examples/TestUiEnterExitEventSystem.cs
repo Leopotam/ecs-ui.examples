@@ -2,11 +2,20 @@ using LeopotamGroup.Ecs.Ui.Components;
 using UnityEngine;
 
 namespace LeopotamGroup.Ecs.Ui.Tests {
+#if !LEOECS_DISABLE_INJECT
     [EcsInject]
+#endif
     public class TestUiEnterExitEventSystem : IEcsRunSystem {
         EcsFilter<EcsUiEnterEvent> _enterEvents = null;
 
         EcsFilter<EcsUiExitEvent> _exitEvents = null;
+
+#if LEOECS_DISABLE_INJECT
+        public TestUiEnterExitEventSystem (EcsWorld world) {
+            _enterEvents = world.GetFilter<EcsFilter<EcsUiEnterEvent>> ();
+            _exitEvents = world.GetFilter<EcsFilter<EcsUiExitEvent>> ();
+        }
+#endif
 
         public void Run () {
             for (var i = 0; i < _enterEvents.EntitiesCount; i++) {

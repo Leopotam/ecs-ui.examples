@@ -2,13 +2,23 @@ using LeopotamGroup.Ecs.Ui.Components;
 using UnityEngine;
 
 namespace LeopotamGroup.Ecs.Ui.Tests {
+#if !LEOECS_DISABLE_INJECT
     [EcsInject]
+#endif
     public class TestUiDragEventSystem : IEcsRunSystem {
         EcsFilter<EcsUiBeginDragEvent> _beginDragEvents = null;
 
         EcsFilter<EcsUiDragEvent> _dragEvents = null;
 
         EcsFilter<EcsUiEndDragEvent> _endDragEvents = null;
+
+#if LEOECS_DISABLE_INJECT
+        public TestUiDragEventSystem (EcsWorld world) {
+            _beginDragEvents = world.GetFilter<EcsFilter<EcsUiBeginDragEvent>> ();
+            _dragEvents = world.GetFilter<EcsFilter<EcsUiDragEvent>> ();
+            _endDragEvents = world.GetFilter<EcsFilter<EcsUiEndDragEvent>> ();
+        }
+#endif
 
         public void Run () {
             for (var i = 0; i < _beginDragEvents.EntitiesCount; i++) {
