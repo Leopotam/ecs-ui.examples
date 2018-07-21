@@ -1,7 +1,7 @@
-using LeopotamGroup.Ecs.Ui.Systems;
+using Leopotam.Ecs.Ui.Systems;
 using UnityEngine;
 
-namespace LeopotamGroup.Ecs.Ui.Tests {
+namespace Leopotam.Ecs.Ui.Tests {
     public class Startup : MonoBehaviour {
         [SerializeField]
         EcsUiEmitter _uiEmitter;

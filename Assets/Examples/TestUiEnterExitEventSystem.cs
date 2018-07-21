@@ -1,7 +1,7 @@
-using LeopotamGroup.Ecs.Ui.Components;
+using Leopotam.Ecs.Ui.Components;
 using UnityEngine;
 
-namespace LeopotamGroup.Ecs.Ui.Tests {
+namespace Leopotam.Ecs.Ui.Tests {
 #if !LEOECS_DISABLE_INJECT
     [EcsInject]
 #endif
