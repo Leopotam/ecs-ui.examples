@@ -45,8 +45,9 @@ namespace Leopotam.Ecs.Ui.Tests {
         }
 
         void OnDisable () {
-            _systems.Destroy ();
+            _systems.Dispose ();
             _systems = null;
+            _world.Dispose ();
             _world = null;
         }
     }

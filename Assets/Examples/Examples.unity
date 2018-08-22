@@ -513,9 +513,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4fd52528c4e814f6187eeb61a19d5187, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  WidgetName: 
+  WidgetName: drag
   Emitter: {fileID: 0}
-  _nameRegistrationType: 0
+  _nameRegistrationType: 2
 --- !u!1 &483259019
 GameObject:
   m_ObjectHideFlags: 0
@@ -1064,7 +1064,7 @@ RectTransform:
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 0.3281}
+  m_AnchorMax: {x: 1, y: 0.3281001}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 20, y: 20}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -1565,9 +1565,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ab0c9fb09327b4c8193edaee9a0ce4ef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  WidgetName: 
+  WidgetName: click
   Emitter: {fileID: 0}
-  _nameRegistrationType: 0
+  _nameRegistrationType: 1
   DragTreshold: 5
 --- !u!1 &1570924260
 GameObject:
@@ -1599,7 +1599,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 201.57}
+  m_AnchoredPosition: {x: 0, y: 201.57004}
   m_SizeDelta: {x: 0, y: 300}
   m_Pivot: {x: 0, y: 1}
 --- !u!1 &1602310909
