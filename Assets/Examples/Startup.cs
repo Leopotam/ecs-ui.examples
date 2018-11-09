@@ -24,7 +24,6 @@ namespace Leopotam.Ecs.Ui.Tests {
                 .Add (new TestUiEnterExitEventSystem ())
                 .Add (new TestUiInputEventSystem ())
                 .Add (new TestUiScrollViewEventSystem ())
-                .Add (new EcsUiCleaner ())
 #else
                 .Add (_uiEmitter.SetWorld (_world))
                 .Add (new TestUiClickEventSystem (_world))
@@ -32,7 +31,6 @@ namespace Leopotam.Ecs.Ui.Tests {
                 .Add (new TestUiEnterExitEventSystem (_world))
                 .Add (new TestUiInputEventSystem (_world))
                 .Add (new TestUiScrollViewEventSystem (_world))
-                .Add (new EcsUiCleaner ().SetWorld (_world))
 #endif
                 .Initialize ();
 #if UNITY_EDITOR
@@ -42,6 +40,7 @@ namespace Leopotam.Ecs.Ui.Tests {
 
         void Update () {
             _systems.Run ();
+            _world.RemoveOneFrameComponents ();
         }
 
         void OnDisable () {
