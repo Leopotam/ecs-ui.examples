@@ -4,3 +4,5 @@ Temp
 *.sln
 .vscode
 obj
+.idea
+.DS_Store
